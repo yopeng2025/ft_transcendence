@@ -1,0 +1,111 @@
+name: PR Auto-Checks
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, ready_for_review]
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+  
+jobs:
+  commit-lint:
+    name: PR Title (Conventional Commits)
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+
+      - run: npm install --no-save @commitlint/cli @commitlint/config-conventional
+
+      # Squash-merge approach: the PR title becomes the commit on main —
+      # so we only validate that one string, not every commit.
+      - name: Lint PR title
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: echo "$PR_TITLE" | npx commitlint
+
+  # lint:
+  #   name: Lint
+  #   runs-on: ubuntu-latest
+  #   if: github.event.pull_request.draft == false
+  #   steps:
+  #     - uses: actions/checkout@v6
+
+  #     - uses: pnpm/action-setup@v4
+  #       with:
+  #         version: 10.28.2
+
+  #     - uses: actions/setup-node@v6
+  #       with:
+  #         node-version: '20'
+  #         cache: 'pnpm'
+
+  #     - run: pnpm install --frozen-lockfile
+
+  #     - run: pnpm lint
+
+  # format:
+  #   name: Format Check
+  #   runs-on: ubuntu-latest
+  #   if: github.event.pull_request.draft == false
+  #   steps:
+  #     - uses: actions/checkout@v6
+
+  #     - uses: pnpm/action-setup@v4
+  #       with:
+  #         version: 10.28.2
+
+  #     - uses: actions/setup-node@v6
+  #       with:
+  #         node-version: '20'
+  #         cache: 'pnpm'
+
+  #     - run: pnpm install --frozen-lockfile
+
+  #     - run: pnpm format:check
+
+  # typecheck:
+  #   name: Typecheck
+  #   runs-on: ubuntu-latest
+  #   if: github.event.pull_request.draft == false
+  #   steps:
+  #     - uses: actions/checkout@v6
+
+  #     - uses: pnpm/action-setup@v4
+  #       with:
+  #         version: 10.28.2
+
+  #     - uses: actions/setup-node@v6
+  #       with:
+  #         node-version: '20'
+  #         cache: 'pnpm'
+
+  #     - run: pnpm install --frozen-lockfile
+
+  #     - run: pnpm typecheck
+
+  # summary:
+  #   name: Final Summary
+  #   runs-on: ubuntu-latest
+  #   # Runs after the others, and even if some of them failed —
+  #   # this job's own job is just to report, not to gate anything.
+  #   needs: [commit-lint, lint, format, typecheck]
+  #   if: always()
+  #   steps:
+  #     - name: Build summary table
+  #       run: |
+  #         echo "## PR Auto-Checks Summary" >> $GITHUB_STEP_SUMMARY
+  #         echo "" >> $GITHUB_STEP_SUMMARY
+  #         echo "| Check | Status |" >> $GITHUB_STEP_SUMMARY
+  #         echo "|-------|--------|" >> $GITHUB_STEP_SUMMARY
+  #         echo "| PR Title (Conventional Commits) | ${{ needs.commit-lint.result == 'success' && '✅ Passed' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
+  #         echo "| Lint | ${{ needs.lint.result == 'success' && '✅ Passed' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
+  #         echo "| Format | ${{ needs.format.result == 'success' && '✅ Passed' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
+  #         echo "| Typecheck | ${{ needs.typecheck.result == 'success' && '✅ Passed' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
