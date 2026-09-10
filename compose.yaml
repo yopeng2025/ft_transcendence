@@ -22,8 +22,8 @@ services:
         secrets:
             - backend_pw
             - jwt_secret
-            # - fortytwo_client_id
-            # - fortytwo_client_secret
+            - fortytwo_client_id
+            - fortytwo_client_secret
         depends_on:
             db:
                 condition: service_healthy
@@ -78,8 +78,8 @@ secrets:
         external: true
     jwt_secret:
         external: true
-    # fortytwo_client_id:
-    #     file: ./secrets/fortytwo_client_id.txt
-    # fortytwo_client_secret:
-    #     file: ./secrets/fortytwo_client_secret.txt
+    fortytwo_client_id:
+        file: ./secrets/fortytwo_client_id.txt
+    fortytwo_client_secret:
+        file: ./secrets/fortytwo_client_secret.txt
 

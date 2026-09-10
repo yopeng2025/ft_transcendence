@@ -1,6 +1,6 @@
 
 secrets:
-	@echo "🔍Checking Podman managed secrets..."
+	@echo ”🔍Checking Podman managed secrets...“
 	@podman secret inspect backend_pw >/dev/null 2>&1 || podman secret create backend_pw secrets/backend_pw.txt
 	@podman secret inspect postgres_root_pw >/dev/null 2>&1 || podman secret create postgres_root_pw secrets/postgres_root_pw.txt
 	@podman secret inspect jwt_secret >/dev/null 2>&1 || podman secret create jwt_secret secrets/jwt_secret.txt
