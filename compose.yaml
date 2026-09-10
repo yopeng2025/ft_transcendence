@@ -21,9 +21,9 @@ services:
             - TWO_FACTOR_URL=${TWO_FACTOR_URL}
         secrets:
             - backend_pw
+            - jwt_secret
             - fortytwo_client_id
             - fortytwo_client_secret
-            - jwt_secret
         depends_on:
             db:
                 condition: service_healthy
@@ -38,7 +38,10 @@ services:
             - backend
 
     db:
-        image: postgres:${POSTGRES_VERSION:-18-alpine}
+        build:
+            context: ./database
+            dockerfile: Dockerfile
+        
         networks:
             - server-side
         environment:
@@ -47,9 +50,8 @@ services:
             - POSTGRES_PASSWORD_FILE=/run/secrets/postgres_root_pw
             - BACKEND_USER=${BACKEND_USER}
             - BACKEND_PW_FILE=/run/secrets/backend_pw
-        volumes:                                                       # +++ /data
-            - postgres_data:/var/lib/postgresql/data                    # named volume for podman to manage volume 
-            - ./database/init.sh:/docker-entrypoint-initdb.d/init.sh:Z # Z flag is for SELinux
+        volumes:
+            - postgres_data:/var/lib/postgresql
         secrets:
             - backend_pw
             - postgres_root_pw
@@ -68,13 +70,14 @@ networks:
     server-side:
         driver: bridge
 
+# use external secrets (podman managed secret)
 secrets:
     backend_pw: 
-        file: ./secrets/backend_pw.txt
+        external: true
     postgres_root_pw:
-        file: ./secrets/postgres_root_pw.txt
+        external: true
     jwt_secret:
-        file: ./secrets/jwt_secret.txt
+        external: true
     fortytwo_client_id:
         file: ./secrets/fortytwo_client_id.txt
     fortytwo_client_secret:
