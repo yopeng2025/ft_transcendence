@@ -1,0 +1,72 @@
+.movie-card {
+	width: 180px;
+
+	background: white;
+
+	border-radius: 12px;
+
+	overflow: hidden;
+
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+	transition: transform 0.2s, box-shadow 0.2s;
+
+	cursor: pointer;
+}
+
+.movie-card:hover {
+	transform: translateY(-4px);
+
+	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+
+/* Poster 占位区域 */
+
+.movie-poster {
+	width: 100%;
+
+	height: 260px;
+
+	background-color: #e8e8e8;
+
+	display: flex;
+
+	align-items: center;
+
+	justify-content: center;
+}
+
+
+/* RESERVE FOR POSTER */
+
+.movie-poster img {
+	width: 100%;
+
+	height: 100%;
+
+	object-fit: cover;
+}
+
+
+/* Movie information */
+
+.movie-info {
+	padding: 14px 16px;
+}
+
+.movie-info h3 {
+	margin: 0;
+
+	font-size: 16px;
+
+	font-weight: 600;
+}
+
+.movie-info p {
+	margin: 6px 0 0;
+
+	font-size: 14px;
+
+	color: #666;
+}
