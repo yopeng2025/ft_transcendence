@@ -36,3 +36,6 @@ Thumbs.db
 
 # Docker / Podman
 postgres-data/
+
+# TS compile local doc
+*.tsbuildinfo
