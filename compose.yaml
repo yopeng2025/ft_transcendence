@@ -15,15 +15,15 @@ services:
         environment:
             - BACKEND_USER=${BACKEND_USER}
             - POSTGRES_DB=${POSTGRES_DB}
-            - FRONTEND_OAUTH_URI=${FRONTEND_OAUTH_URI}
-            - FORTYTWO_REDIRECT_URI=${FORTYTWO_REDIRECT_URI}
+            # - FRONTEND_OAUTH_URI=${FRONTEND_OAUTH_URI}
+            # - FORTYTWO_REDIRECT_URI=${FORTYTWO_REDIRECT_URI}
             - DOMAIN=${DOMAIN}
             - TWO_FACTOR_URL=${TWO_FACTOR_URL}
         secrets:
             - backend_pw
             - jwt_secret
-            - fortytwo_client_id
-            - fortytwo_client_secret
+            # - fortytwo_client_id
+            # - fortytwo_client_secret
         depends_on:
             db:
                 condition: service_healthy
@@ -78,8 +78,8 @@ secrets:
         external: true
     jwt_secret:
         external: true
-    fortytwo_client_id:
-        file: ./secrets/fortytwo_client_id.txt
-    fortytwo_client_secret:
-        file: ./secrets/fortytwo_client_secret.txt
+    # fortytwo_client_id:
+    #     file: ./secrets/fortytwo_client_id.txt
+    # fortytwo_client_secret:
+    #     file: ./secrets/fortytwo_client_secret.txt
 
