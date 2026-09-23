@@ -1,5 +1,7 @@
 
 secrets:
+	@mkdir -p secrets
+	@touch secrets/backend_pw.txt secrets/jwt_secret.txt secrets/postgres_root_pw.txt secrets/fortytwo_client_id.txt secrets/fortytwo_client_secret.txt
 	@systemctl --user is-active --quiet podman.socket || systemctl --user start podman.socket
 	@echo "🔌 Podman socket is ready."
 	@echo "🔍 Checking Podman managed secrets..."
