@@ -29,7 +29,12 @@ jobs:
       - name: Lint PR title
         env:
           PR_TITLE: ${{ github.event.pull_request.title }}
-        run: echo "$PR_TITLE" | npx commitlint
+        run: |
+          PR_TITLE_NORMALIZED="$PR_TITLE"
+          if [[ "$PR_TITLE" =~ ^([A-Za-z]+)/(.+)$ ]]; then
+            PR_TITLE_NORMALIZED="${BASH_REMATCH[1],,}: ${BASH_REMATCH[2]}"
+          fi
+          echo "$PR_TITLE_NORMALIZED" | npx commitlint
 
   # lint:
   #   name: Lint
