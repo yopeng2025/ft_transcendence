@@ -49,14 +49,6 @@ make volumes
 
 ⚠️ Type `http://` explicitly: Firefox may silently upgrade to `https://`, which fails in dev.
 
-## 4. Stop the stack
-
-```bash
-make down
-```
-
-👉 Run `make down` when you're done working, **before switching branches**, and before pulling changes to Dockerfiles, compose files or dependencies. Then `make up` again to rebuild.
-
 
 ## Troubleshooting
 
@@ -74,7 +66,15 @@ podman-compose -p development -f compose.yaml -f compose.dev.yaml --env-file .en
 
 "No such container" errors on `make down` are harmless: nothing was running.
 
-## clean all
+## 4. Stop the stack
+
+```bash
+make down
+```
+
+👉 Run `make down` when you're done working, **before switching branches**, and before pulling changes to Dockerfiles, compose files or dependencies. Then `make up` again to rebuild.
+
+## 5. clean all
 ```bash
 # delete containers and volumes
 make clean
