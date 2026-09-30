@@ -1,5 +1,6 @@
 
 secrets:
+	@test -f .env.dev || cp .env.dev.example .env.dev
 	@mkdir -p secrets
 	@touch secrets/backend_pw.txt \
 		secrets/jwt_secret.txt \
