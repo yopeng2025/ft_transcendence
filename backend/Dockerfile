@@ -1,4 +1,4 @@
-FROM node:24-alpine AS dev
+FROM docker.io/library/node:24-alpine AS dev
 
 # Execute the following commands in Docker image environment
 
