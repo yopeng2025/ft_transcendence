@@ -1,21 +1,17 @@
 import './Navbar.css'
 import { Link } from 'react-router-dom'
+import Logo from '../Logo/Logo'
 
-type NavbarProps = {
-	title: string
-}
 
-function Navbar({ title }: NavbarProps) {
+function Navbar() {
 	return (
 		<nav className="navbar">
 			{/* RESERVE FOR LOGO */}
-				{title}
-			<a href="/" className="navbar-logo"></a>
-
+			<Logo />
 			<div className="navbar-links">
 				<Link to="/">Home</Link>
 				<Link to="/movies">Movies</Link>
-				<Link to="/events">Events</Link>
+				<Link to="/activity">Activity</Link>
 			</div>
 
 			<a href="/login" className="navbar-login">

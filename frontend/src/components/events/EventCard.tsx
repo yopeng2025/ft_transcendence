@@ -1,5 +1,4 @@
 import './EventCard.css'
-import { Link } from 'react-router-dom'
 
 type EventCardProps = {
 	id: number
@@ -37,9 +36,6 @@ function EventCard({
 
 	<div className="event-footer">
 			<span>Hostes by {organizer}</span>
-			<Link to={`/events/${id}`} className='view-event-button'>
-				View Event
-			</Link>
 	</div>
 
 		</div>

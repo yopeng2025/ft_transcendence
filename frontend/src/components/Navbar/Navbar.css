@@ -6,17 +6,10 @@
 	border-bottom: 1px solid #e5e5e5;
 }
 
-.navbar-logo {
-	font-size: 22px;
-	font-weight: 700;
-	color: #111;
-	text-decoration: none;
-}
-
 .navbar-links {
 	display: flex;
 	gap: 28px;
-	margin-left: 50px;
+	margin-left: auto;
 }
 
 .navbar-links a {
@@ -30,7 +23,7 @@
 }
 
 .navbar-login {
-	margin-left: auto;
+	margin-left: 28px;
 	padding: 8px 16px;
 	border-radius: 8px;
 	background: #111;
