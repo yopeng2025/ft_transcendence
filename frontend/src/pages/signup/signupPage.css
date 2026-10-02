@@ -1,0 +1,10 @@
+.signup-page {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 48px 40px;
+}
+
+.signup-header h1 {
+	margin: 0;
+	font-size: 36px;
+}

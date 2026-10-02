@@ -1,5 +1,5 @@
 import './Navbar.css'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import Logo from '../Logo/Logo'
 
 
@@ -9,15 +9,20 @@ function Navbar() {
 			{/* RESERVE FOR LOGO */}
 			<Logo />
 			<div className="navbar-links">
-				<Link to="/">Home</Link>
-				<Link to="/movies">Movies</Link>
-				<Link to="/activity">Activity</Link>
+				<NavLink to="/movies" className="navbar-links">
+					Movies
+				</NavLink>
+				<NavLink to="/events" className="navbar-links">
+					Events
+				</NavLink>
+				<NavLink to="/activity" className="navbar-links">
+					Activity
+				</NavLink>
 			</div>
 
-			<a href="/login" className="navbar-login">
+			<NavLink to="/signin" className="navbar-login">
 				Login
-			</a>
-
+			</NavLink>
 		</nav>
 	)
 }
