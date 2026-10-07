@@ -7,11 +7,12 @@
 }
 
 .logo img {
-	height: 32px;
+	height: 64px;
 }
 
 .logo span {
 	font-family: Georgia, serif;
 	font-weight: bold;
-	font-size: 22px;
+	font-size: 44px;
 }
+

@@ -1,10 +1,10 @@
-.Movies-page {
+.search-movies-page {
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 48px 40px;
 }
 
-.Movies-header h1 {
+.search-movies-header h1 {
 	margin: 0;
 	font-size: 36px;
 }

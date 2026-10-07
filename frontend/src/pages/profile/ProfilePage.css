@@ -1,0 +1,49 @@
+.profile-container {
+    max-width: 800px;
+    margin: 100px auto;
+	display: flex;
+	flex-direction: column;
+    gap: 12px;
+    align-self: flex-end 
+}
+
+.box-name {
+    background: #ffffff;
+    display: flex; 
+    padding: 20px;
+    align-items: center;  
+    border-radius: 8px;
+    gap: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #d2d2d290;
+}
+
+.bouton-logout {
+    align-self: flex-end;
+    border: none;  
+	padding: 8px 16px;
+	border-radius: 8px;
+	background: #d44949;
+	color: #fafafa;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 14px;
+    cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.bouton-logout:hover {
+	background: #d02a2a;
+}
+
+.profile-info h1{
+    margin: 0 0 4px;
+    font-family: Georgia, serif;
+    font-size: 24px;
+}
+
+.profile-info p {
+    margin: 0;
+    color :#767676
+
+}

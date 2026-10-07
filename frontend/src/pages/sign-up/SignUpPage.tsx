@@ -86,6 +86,7 @@ function SignUpPage() {
 						{error && <p className="signup-error">{error}</p>} 
 
                     <button type="submit">Sign Up</button>
+					<p className="p">Already have an account? <a href="/signin">Sign in</a> </p>
                     </div>
                 </div>
 			</form>

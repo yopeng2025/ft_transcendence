@@ -11,7 +11,6 @@
 .navbar-links {
 	display: flex;
 	gap: 28px;
-	margin-left: auto;
 }
 
 .navbar-links a {
@@ -28,7 +27,9 @@
 .navbar-links a.active {
 	color: #111;
 }
-
+.navbar .logo {
+	margin-right: auto;
+}
 .navbar-login {
 	margin-left: 28px;
 	padding: 8px 16px;
@@ -38,10 +39,13 @@
 	text-decoration: none;
 	font-weight: bold;
 	font-size: 14px;
-	transition: all 0.3s ease-in-out;
-
+	transition: all 0.2s ease-in-out;
 }
 
 .navbar-login:hover {
 	background: #7a4221;
+}
+
+.navbar-avatar {
+	margin-left: 28px;
 }
