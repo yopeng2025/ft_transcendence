@@ -1,0 +1,19 @@
+.privacy-policy-page {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 48px 40px;
+}
+
+.privacy-policy-header h1 {
+	margin: 0;
+	font-family: Georgia, serif;
+	font-weight: bold;
+	font-size: 36px;
+}
+
+.privacy-policy-header h2 {
+	margin: 0;
+	color: #404040;
+	font-weight: bold;
+	font-size: 24px;
+}

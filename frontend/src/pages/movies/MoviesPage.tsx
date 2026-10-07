@@ -1,4 +1,4 @@
-import './moviesPage.css'
+import './MoviesPage.css'
 
 function MoviesPage() {
 	return (

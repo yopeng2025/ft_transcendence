@@ -35,6 +35,7 @@ function EventList() {
 			{events.map((event) => (
 			<EventCard
 				id={event.id}
+				key={event.id}
 				title={event.title}
 				movie={event.movie}
 				date={event.date}

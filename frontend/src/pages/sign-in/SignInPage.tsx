@@ -1,12 +1,18 @@
 import { useState } from 'react'
-import './signinPage.css'
+import './SignInPage.css'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../context/AuthContext'
 
-function SigninPage() {
+function SignInPage() {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
-
+	const { login } = useAuth()
+	const navigate = useNavigate()
+    
 	function handleSubmit(e: React.FormEvent) {
 		e.preventDefault()
+        login(email)
+        navigate('/')
 		console.log(email, password)
 	}
 
@@ -43,4 +49,4 @@ function SigninPage() {
 	)
 }
 
-export default SigninPage
+export default SignInPage
