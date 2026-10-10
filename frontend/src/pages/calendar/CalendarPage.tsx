@@ -1,10 +1,8 @@
-import './CalendarPage.css'
-
 function CalendarPage() {
 	return (
-		<main className="calendar-page">
-			<section className="calendar-header">
-				<h1>Calendar</h1>
+		<main className="max-w-[1200px] mx-auto py-12 px-10">
+			<section>
+				<h1 className="text-4xl font-bold">Calendar</h1>
 			</section>
 		</main>
 	)

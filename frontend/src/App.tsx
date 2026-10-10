@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import './App.css'
 
 import Navbar from './components/Navbar/Navbar'
 import HomePage from './pages/home/HomePage'
@@ -38,7 +37,11 @@ function App() {
 					<Route path="/search-movies" element={<SearchMoviesPage />} />
 				</Route>
 
-					<Route path="*" element={<h1>404 Not Found</h1>} />
+					<Route path="*" element={
+					<main className="max-w-[1200px] mx-auto py-12 px-10">
+						<h1 className="font-serif font-bold text-4xl text-text">404 Not Found</h1>
+					</main>
+				} />
 			</Routes>
 			</BrowserRouter>
 		</AuthProvider>

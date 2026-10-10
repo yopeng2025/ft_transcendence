@@ -1,4 +1,5 @@
 import EventCard from './EventCard'
+import defaultMovie from '../../assets/default-movie.jpg'
 import { useState, useEffect } from 'react'
 
 type Event = {
@@ -17,6 +18,7 @@ type Event = {
 	participants: number,
 	status: string,
 	organizer: string,
+	image?: string,
 }
 
 function EventList() {
@@ -37,6 +39,7 @@ function EventList() {
 				id={event.id}
 				key={event.id}
 				title={event.title}
+				image={event.image || defaultMovie}
 				movie={event.movie}
 				date={event.date}
 				time={event.time}

@@ -1,45 +1,43 @@
-import './EventCard.css'
-
 type EventCardProps = {
 	id: number
-    title: string
+	title: string
 	movie: string
-    date: string
+	date: string
 	time: string
-    location: string
+	location: string
 	participants: number
 	maxParticipants: number
 	organizer: string
+	image: string
 }
 
-function EventCard({ 
-	id,
+const cardClass = "w-full max-w-[700px] p-6 bg-surface border border-border rounded-lg shadow-card transition-transform hover:-translate-y-1"
+const imageClass = "w-full h-48 mb-4 object-cover rounded-md"
+const titleClass = "font-serif font-bold text-2xl text-text"
+const detailsClass = "flex flex-col gap-1 text-text-muted"
+
+function EventCard({
 	title,
 	movie,
-    date,
+	date,
 	time,
-    location,
+	location,
 	participants,
 	maxParticipants,
 	organizer,
+	image,
 }: EventCardProps) {
-    return (
-		<div className="event-card">
-			<h3 className="event-title">{title}</h3>
-			<p className="event-movie">{movie}</p>
+	return (
+		<div className={cardClass}>
+			<img src={image} alt={movie} className={imageClass} />
+			<h3 className={titleClass}>{movie}</h3>
 
-			<div className="event-details">
-			<p>📅 {date} · {time}</p>
-			<p>📍{location}</p>
-			<p>👥 {participants} / {maxParticipants} participants</p>
+			<div className={detailsClass}>
+				<p>📅 {date} · {time}</p>
+				<p>📍 {location}</p>
 			</div>
-
-	<div className="event-footer">
-			<span>Hostes by {organizer}</span>
-	</div>
-
 		</div>
-    )
+	)
 }
 
 export default EventCard

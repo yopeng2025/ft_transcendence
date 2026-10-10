@@ -1,10 +1,36 @@
+@import "tailwindcss";
+@import "./styles/design-system.css";
+
+/* Thème Tailwind basé sur design-system.css */
+@theme inline {
+	--color-brand: var(--ds-brand);
+	--color-brand-hover: var(--ds-brand-hover);
+	--color-danger: var(--ds-danger);
+
+	--color-text: var(--ds-text);
+	--color-text-muted: var(--ds-text-muted);
+	--color-text-light: var(--ds-text-light);
+
+	--color-bg: var(--ds-bg);
+	--color-surface: var(--ds-surface);
+	--color-border: var(--ds-border);
+
+	--font-sans: var(--ds-font-sans);
+	--font-serif: var(--ds-font-serif);
+
+	--radius-md: var(--ds-radius);
+	--radius-lg: var(--ds-radius-lg);
+	--shadow-card: var(--ds-shadow);
+}
+
 :root {
-	font-family: Arial, sans-serif;
-	color: #111;
-	background: #fafafa;
+	font-family: var(--ds-font-sans);
+	color: var(--ds-text);
+	background: var(--ds-bg);
 }
 
 body {
+	background: var(--ds-bg);
 	margin: 0;
 	min-width: 320px;
 	min-height: 100vh;

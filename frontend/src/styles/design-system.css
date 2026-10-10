@@ -1,0 +1,25 @@
+/* CineClub — Design system (valeurs reprises du site existant) */
+
+:root {
+	/* Couleurs */
+	--ds-brand: #915836;
+	--ds-brand-hover: #7a4221;
+	--ds-danger: #d44949;
+
+	--ds-text: #111;
+	--ds-text-muted: #666;
+	--ds-text-light: #a7a7a7;
+
+	--ds-bg: #FBF8F2;
+	--ds-surface: #ffffff;
+	--ds-border: #ddd;
+
+	/* Polices */
+	--ds-font-sans: Arial, sans-serif;
+	--ds-font-serif: Georgia, serif;
+
+	/* Formes */
+	--ds-radius: 8px;
+	--ds-radius-lg: 12px;
+	--ds-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}

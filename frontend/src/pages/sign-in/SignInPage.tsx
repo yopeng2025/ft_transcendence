@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import './SignInPage.css'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
+
+const inputClass = "py-2.5 px-3 border border-border rounded-md text-base"
 
 function SignInPage() {
 	const [email, setEmail] = useState('')
@@ -18,11 +19,11 @@ function SignInPage() {
 
 	return (
         
-        <main className="signin-page">
-			<form className="signin-form" onSubmit={handleSubmit}>
-                <h1>Welcome Back !</h1>
-                <div className="box">
-                    <div className="signin-field">
+        <main>
+			<form className="flex flex-col gap-2 max-w-[320px] mx-auto my-[320px]" onSubmit={handleSubmit}>
+                <h1 className="text-center text-5xl font-serif font-bold">Welcome Back !</h1>
+                <div className="relative p-5 bg-surface border border-border rounded-md shadow-card">
+                    <div className="flex flex-col gap-2">
                             <input
                                 id="email"
                                 type="email"
@@ -30,6 +31,7 @@ function SignInPage() {
                                 placeholder="email"
                             onChange={(e) => setEmail(e.target.value)}
                             required
+                            className={inputClass}
                         />
 
                         <input
@@ -39,10 +41,11 @@ function SignInPage() {
                             placeholder="password"
                             onChange={(e) => setPassword(e.target.value)}
                             required
+                            className={inputClass}
                         />
-                    <button type="submit">Sign In</button>
+                    <button type="submit" className="py-2.5 px-3 rounded-md bg-brand hover:bg-brand-hover text-white text-base cursor-pointer">Sign In</button>
                     </div>
-                    <p className="p">New ? <a href="/signup">Create an account</a> </p>
+                    <p className="text-text-light">New ? <a href="/signup" className="text-brand hover:text-brand-hover">Create an account</a> </p>
                 </div>
 			</form>
 		</main>

@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
 import MovieCard from './MovieCard'
-import './MovieList.css'
 
 type Movie = {
     id: number
     title: string
     year: number
 }
+
+const listClass = "flex flex-wrap gap-5"
 
 function MovieList() {
 	const [movies, setMovies] = useState<Movie[]>([])
@@ -21,7 +22,7 @@ function MovieList() {
 
 	return (
 		<>
-        <div className="movie-list">
+        <div className={listClass}>
         {movies.map((movie) => (
             <MovieCard
                 key={movie.id}
